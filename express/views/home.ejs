@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home</title>
+</head>
+<body>
+    <h1>home pagsfdssfe</h1>
+    <h1> <%= randomed_number %>    </h1>
+    <% if (randomed_number > 0.5) { %>
+     <h1>bigger</h1>
+    <% } %>
+    <% if (randomed_number <0.5) { %>
+        <h3>smol</h3>
+       <% } %>
+
+<form action="http://localhost:3000/tacos" method="get">
+    <input type="text" placeholder="name">
+    <input type="number" placeholder="qty">
+    <button>get</button>
+</form>
+
+<form action="http://localhost:3000/tacos" method="post">
+    <input type="text" placeholder="name" name="name">
+    <input type="number" placeholder="qty" name="'qty">
+    <button>post</button>
+</form>
+
+
+</body>
+</html>

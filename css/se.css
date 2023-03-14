@@ -1,0 +1,29 @@
+h1{
+    text-align: center;
+    width: 40%;
+    height: max-content;
+    letter-spacing: 20px;
+}
+body{
+    font-weight: bold;
+    font-family: cursive;
+    background-color: rgb(44, 40, 40);
+    color: rgb(235, 208, 235);
+}
+h2{
+    font-style: italic;
+    text-decoration: #faf overline;
+    color: aqua;
+
+}
+a{
+    text-decoration: none;
+    color: #faf;
+    font-size: xx-large;
+}
+p{
+    font-size: larger;
+}
+#doms{
+    color: black;
+}

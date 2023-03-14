@@ -1,0 +1,35 @@
+body{
+    background-color: black;
+}
+
+
+h1{
+    color: crimson;
+    background-color: black;
+    
+    
+}
+h2{
+    color: aquamarine;
+    text-transform: uppercase;
+
+}
+button{
+   color: white;
+   background-color:black ; 
+}
+a{
+    color: chartreuse;
+    background-color: #a1a1a1;
+}
+p{
+    color: blueviolet;
+    font-family: cursive;
+}
+qwe{
+    color: black;
+
+}
+li{
+    background-color: rgb(90, 151, 0);
+}

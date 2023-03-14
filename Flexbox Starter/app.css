@@ -1,0 +1,67 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+h1 {
+    text-align: center;
+}
+#container {
+    background-color: #003049;
+    width: 90%;
+    /* height: 200px; */
+    margin: 0 auto;
+    border: 5px solid #003049;
+    display: flex;
+    flex-direction:row;
+    justify-content:center;
+    /* flex-wrap: wrap; */
+
+}
+/*flex should be of container*/
+/*justify-content:space-evenly; along main-Y axis*/
+/*align-items:space-evenly; alng cross-X axis*/
+ /*align content only works with flex-wrap: wrap;*/
+ /* align-self: center property of item not container*/
+/*     background-color: #003049;
+    width: 90%;
+    height: 500px;
+    margin: 0 auto;
+    border: 5px solid #003049;
+    display: flex;
+    flex-direction:row;
+    justify-content:center;
+     flex-wrap: wrap;
+   align-items: center ;*/
+
+#container div {
+    width: 200px;
+    height: 200px;
+    flex-basis: 200px;
+}
+div:nth-of-type(1){
+    flex-grow: 1;
+}
+div:nth-of-type(3){
+    flex-grow: 1;
+}
+div:nth-of-type(5){
+    flex-shrink: 3;
+}
+/* flex basis of for flex shrink/grow */
+main{
+    width: 80%;
+    margin: 0 auto;
+    border: 5px solid black;
+    height: 500px;
+    display: flex;
+    flex-direction: row;
+
+}
+main .sidebar{
+    background-color: purple;
+    flex-grow: 1;
+}
+main .maincontent{
+    background-color: aqua;
+    flex-grow: 1;
+    flex-basis: 70%;
+}
