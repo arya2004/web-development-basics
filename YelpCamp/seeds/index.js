@@ -1,5 +1,7 @@
 
 const mongoose = require('mongoose');
+const cities = require('./cities')
+const {places, descriptors} = require('./seedHelpers');
 const Campground = require('../models/campground');
 //const methodOverride = require('method-override')
 
@@ -11,12 +13,26 @@ db.once("open", ()=>{
     console.log("Database connectef")
 });
 
+const sample = array => array[Math.floor(Math.random()* array.length)];
+
+
 const seedDb = async() =>{
     await Campground.deleteMany({});
-    const c = new Campground({
-        title : "yui"
-    });
-    await c.save();
+
+ 
+    for (let i = 0; i < 50; i++) {
+        const random1000 = Math.floor(Math.random() * 1000);
+        const camp = new Campground({
+            location: `${cities[random1000].city} , ${cities[random1000].state}`,
+            title: `${sample(descriptors)} ${sample(places)}`
+        })
+        await camp.save();
+        
+    }
+    
     console.log('saves')
 }
+// seedDb().then(() => {
+//     mongoose.connection.close()
+// });
 seedDb();
