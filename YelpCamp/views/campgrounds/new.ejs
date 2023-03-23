@@ -4,22 +4,34 @@
 <div class="row">
     <h1 class="text-center">New </h1>
     <div class = "col-6 offset-3">
-        <form action="/campgrounds" method="post">
+        <form action="/campgrounds" method="post" novalidate class="validated-form">
             <div class="mb-3">
                 <label class="form-label"for="title">Title</label>
-                <input class="form-control"type="text" name="campground[title]" id="title">
+                <input class="form-control"type="text" name="campground[title]" id="title" required>
+                <div class="valid-feedback">
+                    Looks good!
+                  </div>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="title">Location</label>
-                <input class="form-control" type="text" name="campground[location]" id="location">
+                <input class="form-control" type="text" name="campground[location]" id="location" required>
+                <div class="valid-feedback">
+                    Looks good!
+                  </div>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="title">Image Url</label>
-                <input class="form-control" type="text" name="campground[image]" id="image">
+                <input class="form-control" type="text" name="campground[image]" id="image" required>
+                <div class="valid-feedback">
+                    Looks good!
+                  </div>
             </div>
             <div class="mb-3">
                 <label class="form-label" for="description">Description</label>
-                <textarea class="form-control" type="text" name="campground[description]" id="description"></textarea>
+                <textarea class="form-control" type="text" name="campground[description]" id="description" required></textarea>
+                <div class="valid-feedback">
+                    Looks good!
+                  </div>
             </div>
             <div class="input-group mb-3">
                 <span class="input-group-text">$</span>
@@ -35,3 +47,5 @@
     
     </div>
 </div>
+
+
