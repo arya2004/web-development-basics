@@ -3,6 +3,7 @@ const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
 const Product = require('./models/products.js')
+const Farm = require('./models/farm.js')
 const methodOverride = require('method-override')
 
 mongoose.connect('mongodb://127.0.0.1:27017/farmStand')
@@ -24,6 +25,24 @@ app.get('/',(req,res)=>{
     
     res.send('home');
 })
+
+app.get('/farms', async(req,res)=>{
+    const farms = await Farm.find({})
+    res.render('farms/index', {farms})
+})
+
+app.get('/farms/new', (req,res) =>{
+    res.render('farms/new')
+})
+app.post('/farms',async (req,res) =>{
+    const farm = new Farm(req.body)
+    await farm.save();
+    res.redirect('/farms')
+})
+
+
+
+
 
 app.get('/products', async(req,res)=>{
    const products = await Product.find({})
