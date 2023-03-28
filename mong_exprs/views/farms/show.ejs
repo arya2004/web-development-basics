@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>   </title>
+</head>
+<body>
+    <h1><%= farm.name %> </h1>
+    <ul>
+        <li>city <%= farm.city %></li>
+        <li>email <%= farm.email %></li>
+
+    </ul>
+    <a href="/farms">Home</a>
+
+<form action="/farms/<%= farm._id%>?_method=DELETE" method="post">
+    <button>delte</button>
+</form>
+
+
+
+</body>
+</html>
