@@ -19,5 +19,29 @@
             <button class="card-link btn btn-danger">delete</button></form>
           <a class="card-link btn btn-warning" href="/campgrounds" class="card-link">Home</a>
         </div>
+        <h2>Review</h2>
+        <form action="/campgrounds/<%= campground._id %>/reviews" method="POST" class="mb-3 validated-form" novalidate>
+          <div class="mb-3">
+            <label class="form-lable" for="rating">Rating</label>
+            <input class="form-range" type="range" min="1" max="5" name="review[rating]" id="rating">
+          </div>
+          <div class="mb-3">
+            <label class="form-label"  for="body">Review</label>
+            <textarea class="form-control" name="review[body]" id="body" cols="30" rows="3"></textarea>
+          </div>
+          <button class="btn btn-success">submit</button>
+        </form>
+        <% for( let review of campground.reviews ) { %>
+        <div class="mb-3 card">
+        
+        <div class="card-body">
+          <h5 class="card-title"> Rating:<%= review.rating %></h5>
+          <p class="cord-text"> Review: <%= review.body %></p>
+          <form action="/campgrounds/<%= campground._id %>/reviews/<%= review._id %>?_method=DELETE" method="POST">
+          <button class="btn btn-sm btn-danger">delete</button>
+        </form>
+        </div>
+      </div>
+        <% } %>
       </div>
     </div>
