@@ -58,17 +58,6 @@ app.get('/', (req,res)=>{
 app.use('/campgrounds', campgrounds)
 app.use('/campgrounds/:id/reviews', reviews)
 
-
-
-
-
-
-
-
-
-
-
-
 app.all('*',(req,res,next) =>{
      next(new ExpressError('not found', 404))
 })

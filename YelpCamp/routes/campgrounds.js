@@ -26,7 +26,7 @@ router.get('/new', (req,res)=>{
 })
 
 
-router.post('/campgrounds',catchAsync( async (req,res, next)=>{
+router.post('/',catchAsync( async (req,res, next)=>{
     
     if(!req.body.campground) throw new ExpressError('Invalid', 400);
         const campground = new Campground(req.body.campground)
@@ -61,7 +61,7 @@ router.put('/:id/',catchAsync(  async (req,res)=>{
 router.delete('/:id',catchAsync( async (req,res)=>{
     const { id } = req.params;
     await Campground.findByIdAndDelete(id);
-    res.redirect('./campgrounds');
+    res.redirect('./');
 }))
 
 module.exports = router;
