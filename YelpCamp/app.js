@@ -16,6 +16,7 @@ const User = require('./models/user')
 
 const campgrounds = require('./routes/campgrounds.js')
 const reviews = require('./routes/reviews.js')
+const usersRoutes = require('./routes/users.js')
 
 
 
@@ -53,10 +54,22 @@ app.use(passport.initialize())
 app.use(passport.session())
 passport.use(new LocalStrategy(User.authenticate()))
 
+passport.serializeUser(User.serializeUser())
+passport.deserializeUser(User.deserializeUser())
+
+
 app.use((req,res,next) =>{
+    res.locals.currentUser = req.user;
     res.locals.success = req.flash('success');
+    res.locals.error = req.flash('error');
     next();
 })
+app.get('/faje', async (req,res)=>{
+    const user = new User({email:'aradef', username: 'sdfsdfsdf'})
+   const newUser = await User.register(user, 'qwerty')
+    res.send(newUser);
+})
+
 app.get('/', (req,res)=>{
     res.render('home')
 })
@@ -64,6 +77,7 @@ app.get('/', (req,res)=>{
 
 app.use('/campgrounds', campgrounds)
 app.use('/campgrounds/:id/reviews', reviews)
+app.use('/register', usersRoutes)
 
 app.all('*',(req,res,next) =>{
      next(new ExpressError('not found', 404))
