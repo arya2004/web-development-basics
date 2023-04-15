@@ -37,8 +37,9 @@ router.post('/',upload.single('image'),catchAsync( async (req,res, next)=>{
         req.flash('error', 'not logged in')
         return res.render('./users/login')
      }
-    if(!req.body.campground) throw new ExpressError('Invalid', 400);
-        const campground = new Campground(req.body.campground);
+    const campground = new Campground(req.body.campground);
+    campground.images =req.files.map(f =>({path: f.path, filename: f.filename}));
+    if(!req.body.campground) throw new ExpressError('Invalid', 400); 
         campground.author = req.user._id;
         await campground.save()
         req.flash('success', 'done')
