@@ -1,0 +1,17 @@
+{
+  "name": "push_noti",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "expresss": "^0.0.0",
+    "web-push": "^3.6.1"
+  }
+}
