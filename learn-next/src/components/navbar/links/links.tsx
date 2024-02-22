@@ -1,5 +1,10 @@
-import Link from "next/link"
+"use client";
 
+import Link from "next/link"
+import styles from "./links.module.css"
+import NavLink from "./navLink/navLink"
+import { Truculenta } from "next/font/google"
+import { useState } from "react"
 const Links = () => {
 
     const links = [
@@ -9,11 +14,44 @@ const Links = () => {
         { name: 'Blog', path: '/blog' }
     
     ]
+
+    const [open, setOpen] = useState(true);
+
+
+    const session: boolean = true;
+    const isAdmin: boolean = true;
     return (
-        <div>
+        <div className={styles.container}>
+        <div className={styles.links}>
             {links.map((link => (
-                <Link href={link.path} key={link.name}>{link.name}</Link>
+                <NavLink item={link} key={link.name}/>
             )))}
+          {session ? (
+            <>
+            {
+                isAdmin && (
+                    <NavLink item={{ name: 'Admin', path: '/admin' }} />
+                
+                )
+
+            }
+            <button className={styles.logout}>Logout</button>
+            </>
+          ) : (
+            <NavLink item={{ name: 'Login', path: '/login' }} />
+          ) }
+        </div>
+        <button className={styles.menuButton} onClick={() => {
+            setOpen((prev) =>  !prev);
+        }}>Menu</button>
+
+        {open && 
+        <div className={styles.mobileLinks}>
+          {links.map((link) => (
+            <NavLink item={link} key={link.name} />
+          ))}
+        </div>
+      }
         </div>
     )
 
