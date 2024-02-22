@@ -50,6 +50,7 @@ router.post('/',upload.single('image'),catchAsync( async (req,res, next)=>{
 ))
 
 
+
 router.get('/:id',catchAsync( async (req,res)=>{
     const campground = await Campground.findById(req.params.id).populate('reviews').populate('author');//populate to get author and reviews
    
