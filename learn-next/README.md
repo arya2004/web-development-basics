@@ -21,3 +21,8 @@ SSR is enabled by default
 CSR "use client" 
 
 Prevent Hydration with useEffect Hook
+
+
+#### Cache
+
+`{cache: "no-store"}` to prevent caching

@@ -1,19 +1,38 @@
 import PostCard from "@/components/postCard/postCard";
 import styles from "./blog.module.css";
 
-const BlogPage = ({params, searchParams}) => {
+const getData = async () => {
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts", {cache: "no-store"});
+
+  if(!res.ok) {
+    throw new Error("Something went wrong");
+  }
+  return res.json();
+}
+
+const BlogPage = async ({params, searchParams}) => {
+
+    const posts = await getData();
 
     console.log(params);
     console.log(searchParams);  
+    console.log(posts);
     return (
         <div className={styles.container}>
-       
-        <PostCard post={{title: "Post 1", body: "This is the first post"}}/>
-        <PostCard post={{title: "Post 2", body: "This is the second post"}}/>
-        <PostCard post={{title: "Post 3", body: "This is the third post"}}/>
-        <PostCard post={{title: "Post 4", body: "This is the fourth post"}}/>
-        <PostCard post={{title: "Post 5", body: "This is the fifth post"}}/>
 
+
+                {posts.map((post: any) => (
+                    
+                    <div className={styles.post}>
+                         <PostCard post={post} key={post.id}/>
+       
+                    </div>
+                )
+
+                )}
+            
+       
+  
         </div>
     );
 }

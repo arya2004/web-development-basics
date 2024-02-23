@@ -2,9 +2,18 @@ import Image from "next/image";
 import styles from "./singlePost.module.css";
 
 import { Suspense } from "react";
+import PostUser from "@/components/postUser/postUser";
 
 
 
+const getData = async (slug) => {
+    const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${slug}`, {cache: "no-store"});
+  
+    if(!res.ok) {
+      throw new Error("Something went wrong");
+    }
+    return res.json();
+  }
   
 
   
@@ -15,7 +24,7 @@ import { Suspense } from "react";
   
     // FETCH DATA WITH AN API
     // FETCH DATA WITHOUT AN API
-    // const post = await getPost(slug);
+     const post = await getData(slug);
   
     return (
       <div className={styles.container}>
@@ -25,9 +34,9 @@ import { Suspense } from "react";
           </div>
         )}
         <div className={styles.textContainer}>
-          <h1 className={styles.title}>{slug}</h1>
+          <h1 className={styles.title}>{post.title}</h1>
           <div className={styles.detail}>
-          
+          <PostUser userId={post.userId} />
             <div className={styles.detailText}>
               <span className={styles.detailTitle}>Published</span>
               <span className={styles.detailValue}>
@@ -35,7 +44,7 @@ import { Suspense } from "react";
               </span>
             </div>
           </div>
-          <div className={styles.content}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam veniam vitae incidunt pariatur ad fugit dignissimos modi repellendus libero optio tempore earum, aliquid, id ea explicabo placeat alias, voluptatem in!</div>
+          <div className={styles.content}>{post.body}</div>
         </div>
       </div>
     );
