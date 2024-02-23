@@ -12,3 +12,12 @@ blod/[blog_id]
 Loading.tsx , Error.tsx are default components for loading and error.
 
 Can be created inside folder for scoped loading and error
+
+
+#### Rendering
+
+SSR is enabled by default
+
+CSR "use client" 
+
+Prevent Hydration with useEffect Hook
