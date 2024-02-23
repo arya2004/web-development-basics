@@ -1,0 +1,24 @@
+[
+    {
+      "title": "First Post",
+      "desc": "This is the description of the first post.",
+      "img": "https://example.com/post1.jpg",
+      "userId": "65d8e3446e198d5db4123227",
+      "slug": "first-post"
+    },
+    {
+      "title": "Second Post",
+      "desc": "This is the description of the second post.",
+      "img": "https://example.com/post2.jpg",
+      "userId": "65d8e3446e198d5db4123228",
+      "slug": "second-post"
+    },
+    {
+      "title": "Third Post",
+      "desc": "This is the description of the third post.",
+      "img": "https://example.com/post3.jpg",
+      "userId": "65d8e3446e198d5db4123228",
+      "slug": "third-post"
+    }
+  ]
+  

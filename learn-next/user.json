@@ -1,0 +1,24 @@
+[
+    {
+      "username": "john_doe",
+      "email": "john@example.com",
+      "password": "hashedpassword123",
+      "img": "https://example.com/profile.jpg",
+      "isAdmin": false
+    },
+    {
+      "username": "jane_smith",
+      "email": "jane@example.com",
+      "password": "hashedpassword456",
+      "img": "https://example.com/avatar.jpg",
+      "isAdmin": true
+    },
+    {
+      "username": "bob_jones",
+      "email": "bob@example.com",
+      "password": "hashedpassword789",
+      "img": "https://example.com/pic.jpg",
+      "isAdmin": false
+    }
+  ]
+  
