@@ -23,7 +23,7 @@ To get started with the code and materials in this repository, follow these step
 
 1. Clone the repository to your local machine.
    ```shell
-   git clone https://github.com/arya2004/Webdev_basic.git
+   git clone https://github.com/arya2004/web-development_basics.git
    ```
 2. Navigate to the specific project or section you are interested in.
 3. Explore the code files associated with each project.
